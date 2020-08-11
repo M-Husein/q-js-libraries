@@ -1,4 +1,7 @@
 // URL utilities
+
+// DEV MORE: https://developer.mozilla.org/en-US/docs/Web/API/URL/URL
+
 // Check absolute URL
 function isAbsoluteUrl(url){
 	try{
@@ -10,10 +13,15 @@ function isAbsoluteUrl(url){
 	}
 }
 
-// DEV MORE: https://developer.mozilla.org/en-US/docs/Web/API/URL/URL
+// Set URL relative to absolute | OPTION: function name toAbsoluteUrl / newURL / setUrl
+function newURL(paths = "", url = window.location.origin){
+  // if(isAbsoluteUrl(url)) return url + paths;
+  // return new URL(paths, url).href; // OPTION: only return string URL in key href
 
-// Get Url Search
+  if(isAbsoluteUrl(url)) return new URL(paths, url); // OPTION: only return string URL in key href
+}
 
+// Get URL search
 // DEV OPTION: https://developer.mozilla.org/en-US/docs/Web/API/URL/searchParams
 /*
 let params = (new URL(document.location)).searchParams;
@@ -40,6 +48,7 @@ function urlSearch(url = window.location.search){// k = 'id', url = window.locat
 
 export {
   isAbsoluteUrl, 
+  newURL, 
   urlSearch, 
 
 };
