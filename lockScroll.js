@@ -1,5 +1,5 @@
 /** FROM: https://www.geeksforgeeks.org/how-to-disable-scrolling-temporarily-using-javascript/ */
-export function disableScroll(){ 
+function disableScroll(){ 
 	// Get the current page scroll position 
 	let st = window.pageYOffset || document.documentElement.scrollTop; 
 	let sl = window.pageXOffset || document.documentElement.scrollLeft;
@@ -11,7 +11,11 @@ export function disableScroll(){
 	}
 }
 
-export function enableScroll(){ 
+function enableScroll(){ 
 	window.onscroll = noop; 
 }
 
+export {
+	disableScroll, 
+	enableScroll
+};
